@@ -1,0 +1,9 @@
+apiVersion: cloudnative.lich/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: test-vm
+  #finalizers:
+  #  - finalizer.cloudnative.lich
+spec:
+  cpu: 100m
+  memory: 4G

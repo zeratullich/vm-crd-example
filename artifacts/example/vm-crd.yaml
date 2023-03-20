@@ -1,0 +1,68 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: virtualmachines.cloudnative.lich
+spec:
+  group: cloudnative.lich
+  names:
+    kind: VirtualMachine
+    plural: virtualmachines
+    singular: virtualmachine
+    shortNames:
+    - vm
+    - vms 
+  scope: Namespaced
+  versions: 
+  - name: v1alpha1
+    served: true
+    storage: true
+    additionalPrinterColumns:
+    - name: Status
+      type: string
+      description: The VM Phase
+      jsonPath: .status.phase
+    - name: CPU
+      type: integer
+      description: CPU Usage
+      jsonPath: .status.server.usage.cpu
+    - name: MEMORY
+      type: integer
+      description: Memory Usage
+      jsonPath: .status.server.usage.memory
+    - name: Age
+      type: date
+      jsonPath: .metadata.creationTimestamp
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              cpu:
+                type: string
+              memory:
+                type: string
+          status:
+            type: object
+            properties:
+              phase:
+                type: string
+              lastUpdateTime:
+                type: string
+              reason:
+                type: string
+              server:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  state:
+                    type: string
+                  usage:
+                    type: object
+                    properties:
+                      cpu:
+                        type: number
+                      memory:
+                        type: number
