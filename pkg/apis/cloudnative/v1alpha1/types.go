@@ -7,6 +7,7 @@ import (
 )
 
 // +genclient
+// +genclient:noStatus
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 type VirtualMachine struct {
@@ -20,8 +21,6 @@ type VirtualMachine struct {
 
 
 type VirtualMachineSpec struct {
-	// Resource corev1.ResourceList `json:"resource"`
-	// Cpu    int64 `json:"cpu"`
 	Cpu    resource.Quantity `json:"cpu"`
 	Memory resource.Quantity `json:"memory"`
 }
@@ -35,7 +34,6 @@ const (
 	VirtualMachineFailed      VirtualMachinePhase = "Failed"
 	VirtualMachineTerminating VirtualMachinePhase = "Terminating"
 	VirtualMachineUnknown     VirtualMachinePhase = "Unknown"
-	// VirtualMachinePending     VirtualMachinePhase = "Pending"
 )
 
 type ResourceUsage struct {
