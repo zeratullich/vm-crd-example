@@ -1,7 +1,7 @@
 # vm-crd-example
 使用[code-generator](https://github.com/kubernetes/code-generator)生成代码，此repository实现了一个简单的控制器，用于监视使用[CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/) 定义的“VM”资源。
 
-Golang版本号需要大于等于go1.19.4，k8s集群版本需要大于等于v1.20.15，此示例将向您展示如何执行基本操作，例如：
+Golang版本号需要大于等于go1.19.4，k8s集群版本需要大于等于v1.20.15，此示例展示如何执行基本操作，例如：
 
 * [x] How to create a custom resource of type `VM` using CRD API.
 * [x] How to operate instances of type `VM`.
