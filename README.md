@@ -24,6 +24,7 @@ $ go build -o vm-crd-create .
 $ vim /usr/lib/systemd/system/docker.service
 ##修改如下
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375
+$ systemctl daemon-reload
 $ systemctl restart docker
 ```
 创建CRD资源：
