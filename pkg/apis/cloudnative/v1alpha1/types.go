@@ -18,8 +18,6 @@ type VirtualMachine struct {
 	Status VirtualMachineStatus `json:"status"`
 }
 
-
-
 type VirtualMachineSpec struct {
 	Cpu    resource.Quantity `json:"cpu"`
 	Memory resource.Quantity `json:"memory"`
